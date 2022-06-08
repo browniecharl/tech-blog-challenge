@@ -19,7 +19,7 @@ const sess = {
     saveUninitialized: true,
     store: new SequelizeStore({
         db: sequelize,
-    })
+    }),
 };
 const hbs = exphbs.create({ helpers });
 app.set('view engine', 'handlebars');
