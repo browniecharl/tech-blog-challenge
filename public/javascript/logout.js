@@ -1,7 +1,7 @@
-const { response } = require("express");
+
 
 async function logout() {
-    const logoutResponse = await fetch('/api/users/logout', {
+    const response = await fetch('/api/users/logout', {
         method: 'post',
         headers: { 'Content-Type': 'application/json' }
     });

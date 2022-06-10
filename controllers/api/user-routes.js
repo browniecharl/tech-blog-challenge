@@ -26,15 +26,20 @@ router.get('/:id', (req, res) => {
       },
       {
         model: Comment,
-        attributes: ['id', 'comment_text', 'created_at']
+        attributes: ['id', 'comment_text', 'created_at'],
+        include: {
+          model: Post,
+          attributes: ['title']
+        }
       }
     ]
   })
   .then(dbUserData => {
     if (!dbUserData) {
-      res.status(404).json({ message: 'No User found with this id' });
+      res.status(404).json({ message: 'No user associated with this id' });
       return;
     }
+    res.json(dbUserData);
   })
   .catch(err => {
     console.log(err);
@@ -45,6 +50,7 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
   User.create({
     username: req.body.username,
+    email: req.body.email,
     password: req.body.password
   })
   .then(dbUserData => {
@@ -54,23 +60,19 @@ router.post('/', (req, res) => {
       req.session.loggedIn = true;
 
       res.json(dbUserData)
-    })
-  })    
-  .catch(err => {
-    console.log(err);
-    res.status(500).json(err);
-  });
+    });
+  }); 
 });
 
 router.post('/login', (req, res) => {
   User.findOne({
     where: {
-      username: req.body.username
+      email: req.body.email
     }
   })
   .then(dbUserData => {
     if(!dbUserData) {
-      res.status(400).json({ message: 'Username not Found' });
+      res.status(400).json({ message: 'No user associated with this email' });
       return;
     }
     const validPassword = dbUserData.checkPassword(req.body.password);
@@ -97,7 +99,7 @@ router.post('/logout', (req, res) => {
   }
 });
 
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
   User.update(req.body, {
     individualHooks: true,
     where: {
