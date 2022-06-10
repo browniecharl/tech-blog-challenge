@@ -12,7 +12,7 @@ async function loginFormHandler(event) {
                 email,
                 password
             }),
-            headers: { 'Content-Type': 'applications/json' }
+            headers: { 'Content-Type': 'application/json' }
         });
         if (response.ok) {
             document.location.replace('/dashboard')
