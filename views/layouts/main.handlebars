@@ -15,9 +15,9 @@
   <div class="wrapper">
     <header>
         <h1 class="has-text-black is-size-2 px-3 py-3 has-text-weight-bold">Tech Blog</h1>
-        <nav class="navbar mt-2">
+        <nav class="navbar">
             {{#if loggedIn}}
-            <a href="/" class="navbar-item is-hoverable button is-dark pt-1 mx-1">Homepage</a>
+            <a href="/" class="navbar-item has-background-color-grey is-hoverable button is-dark pt-1 mx-1">Homepage</a>
             <a href="/dashboard" class="navbar-item button is-dark is-hoverable pt-1">Dashboard</a>
             <a href="/dashboard/create/" class="navbar-item button is-dark is-hoverable pt-1 mx-1">Create post</a>
             <button id="logout" class="button is-dark">Logout</button>
@@ -35,11 +35,11 @@
     <footer class="footer rows pb-2">
         <div class="row-is-full content has-text-centered">
             <p>
-            <a href="/">homepage</a>{{#if loggedIn}} | 
-            <a href="/dashboard/">dashboard</a> | 
-            <a href="/dashboard/create/">create new post</a>
+            <a href="/" class="button is-dark has-text-white">Homepage</a>{{#if loggedIn}} | 
+            <a href="/dashboard/" class="button is-dark has-text-white">dashboard</a> | 
+            <a href="/dashboard/create/" class="button is-dark has-text-white">create new post</a>
             {{else}}
-             | <a href="/login/">login</a>
+            <a href="/login/" class="button is-dark has-text-white">Login</a>
             {{/if}}
             </p>
         </div>

@@ -2,12 +2,13 @@
     box-sizing: border-box;
 }
 
-body, html {
+body, html, .footer {
     height: 100%;
     padding: 0;
     margin: 0;
     color: black;
     font-family: 'Roboto', sans-serif;
+    background-color: grey;
 }
 
 .wrapper {
@@ -27,6 +28,14 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 1%;
+}
+
+.navbar{
+    background-color: grey !important;
+}
+
+#logincolumn {
+    align-content: center !important;
 }
 
 textarea, input {
