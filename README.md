@@ -3,6 +3,9 @@
 ## Description
 This is a CMS-style blog site that can publish articles, blog posts, thoughts and opinions.
 
+## Deployed Application
+- https://tranquil-retreat-90676.herokuapp.com/
+
 ## Usage
 ![](./Screen%20Shot%202022-06-11%20at%201.19.54%20PM.png)
 
