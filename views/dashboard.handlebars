@@ -1,6 +1,4 @@
-    <div class="mb-5 pt-3">
-        <a href="/dashboard/create/"><button id="create-post" class="button is-primary is-pulled-right">create post</button></a>
-        
+    <div class="mb-5 pt-3">        
         <h2 class="title pb-4">Dashboard: your posts</h2><hr>
 {{#if posts.length}}
     </div>
@@ -8,7 +6,7 @@
     {{#each posts as |post|}}
         {{> post-info post}}
         
-            <a href="/dashboard/edit/{{post.id}}"><button class="button mb-5 ml-5 is-warning">edit post</button></a>
+            <a href="/dashboard/edit/{{post.id}}"><button class="button mb-5 ml-5 is-danger">edit post</button></a>
         </div>
     {{/each}}
 
